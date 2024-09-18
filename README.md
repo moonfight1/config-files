@@ -9,3 +9,5 @@ configs for my "rice"
 ![image](https://github.com/user-attachments/assets/b1b64f35-e41c-4c03-bd7c-91687795fae5)
 
 ![image](https://github.com/user-attachments/assets/07273543-8aed-457b-b8f4-f4fedcc6b0d1)
+
+![image](https://github.com/user-attachments/assets/4864ce29-ee99-4644-b7fa-4047732aedad)
