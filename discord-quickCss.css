@@ -1,0 +1,750 @@
+@import url("https://smolalli.github.io/Themes/Snippets/removechatbuttons.css");
+
+:root {
+    /* Chat Area */
+    --gift: none;
+    --gif: none;
+    --sticker: none;
+   /* --emoji: none; */
+   /* --upload: none; */
+   /* --activity: none; */
+
+    /* Channels Sidebar */
+    --invite: none; 
+    --guide: none; /* Server Guide */
+   /* --channels: none; *//* Channels & Roles */
+   /* --browse: none; *//* Browse Channels */
+   /* --members: none; */
+    --server-shop: none;
+   /* --events: none; */
+   /* --boost: none; *//* Boost Bar */
+
+    /* DM Area */
+    --friends: none;
+   /* --store: none; */ /* Nitro store */
+   /* --shop: none;  */
+    
+}
+
+
+/*Revert the change to codeblock font*/
+:root {
+    --font-code: "Consolas", "Andale Mono WT", "Andale Mono",
+        "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+        "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Monaco",
+        "Courier New", "Courier", "monospace";
+}
+
+
+
+/*make decors invisible on hover*/
+
+[class^=avatar_]:hover+[class^=avatarDecoration_],
+[class^=avatar_]:hover [class^=avatarDecoration_] {
+    opacity: 0 !important;
+}
+
+[class^=avatarDecoration_] {
+    transition: .3s opacity;
+}
+
+
+/*Add danger colours to dangerous user actions*/
+
+
+
+#user-context-close-dm,
+#user-context-remove-friend,
+#user-context-block {
+    color: var(--status-danger)
+}
+
+#user-context-close-dm:active,
+#user-context-remove-friend:active,
+#user-context-block:active {
+    background-color: var(--red-500) !important;
+    color: var(--white-500) !important;
+}
+
+#user-context-close-dm[class*="focused-"],
+#user-context-remove-friend[class*="focused-"],
+#user-context-block[class*="focused-"] {
+    background-color: var(--button-danger-background);
+    color: var(--white-500);
+}
+
+/*Make blocked messages smaller until expanded*/
+
+
+
+:not([class*="messageListItem-"]) [class^="groupStart-"]:not([class*="expanded-"]) {
+    max-height: 1px;
+}
+
+[class^="groupStart-"] {
+    margin-top: 0 !important;
+    margin-bottom: 25px;
+}
+
+
+/*favorite and unfavorite emotes context menu button*/
+
+:is(#message-favorite, #message-unfavorite) [class|=label]::after {
+    display: inline-block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: var(--interactive-normal);
+    -webkit-mask: url(/assets/141d49436743034a59dec6bd5618675d.svg);
+    mask: url(/assets/141d49436743034a59dec6bd5618675d.svg);
+    position: absolute;
+    right: 8px;
+}
+
+
+/*remove all reactions context menu button*/
+
+#message-remove-reactions [class|=label]::after {
+    display: inline-block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12ZM6.375 12.8713C7.41054 12.8713 8.25 12.0318 8.25 10.9963C8.25 9.96073 7.41053 9.12128 6.375 9.12128C5.33947 9.12128 4.5 9.96073 4.5 10.9963C4.5 12.0318 5.33946 12.8713 6.375 12.8713ZM19.5 10.9963C19.5 12.0318 18.6605 12.8713 17.625 12.8713C16.5895 12.8713 15.75 12.0318 15.75 10.9963C15.75 9.96073 16.5895 9.12128 17.625 9.12128C18.6605 9.12128 19.5 9.96073 19.5 10.9963ZM10.4867 14.825C10.3576 14.3236 9.8465 14.0217 9.34508 14.1508C8.84365 14.2798 8.54179 14.791 8.67085 15.2924C9.0524 16.7748 10.397 17.8712 12 17.8712C13.603 17.8712 14.9476 16.7748 15.3291 15.2924C15.4582 14.791 15.1563 14.2798 14.6549 14.1508C14.1535 14.0217 13.6424 14.3236 13.5133 14.825C13.3398 15.4991 12.7268 15.9962 12 15.9962C11.2732 15.9962 10.6602 15.4991 10.4867 14.825Z"></path></svg>');
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12ZM6.375 12.8713C7.41054 12.8713 8.25 12.0318 8.25 10.9963C8.25 9.96073 7.41053 9.12128 6.375 9.12128C5.33947 9.12128 4.5 9.96073 4.5 10.9963C4.5 12.0318 5.33946 12.8713 6.375 12.8713ZM19.5 10.9963C19.5 12.0318 18.6605 12.8713 17.625 12.8713C16.5895 12.8713 15.75 12.0318 15.75 10.9963C15.75 9.96073 16.5895 9.12128 17.625 9.12128C18.6605 9.12128 19.5 9.96073 19.5 10.9963ZM10.4867 14.825C10.3576 14.3236 9.8465 14.0217 9.34508 14.1508C8.84365 14.2798 8.54179 14.791 8.67085 15.2924C9.0524 16.7748 10.397 17.8712 12 17.8712C13.603 17.8712 14.9476 16.7748 15.3291 15.2924C15.4582 14.791 15.1563 14.2798 14.6549 14.1508C14.1535 14.0217 13.6424 14.3236 13.5133 14.825C13.3398 15.4991 12.7268 15.9962 12 15.9962C11.2732 15.9962 10.6602 15.4991 10.4867 14.825Z"></path></svg>');
+    position: absolute;
+    right: 8px;
+}
+
+
+
+/*make reviewdb look better with profile themes*/
+
+
+textarea[placeholder*="Review @"] {
+    background-color: #00000040;
+}
+
+/*user panel buttons (mute/deafen) hide behind user settings button, auto-expand on hover*/
+
+.panels_a4d4d9 div[class^="container"] div[class^="flex"] {
+    width: fit-content !important;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.panels_a4d4d9 div[class^="container"] div[class^="avatarWrapper"] {
+    width: 194px;
+    margin-right: 8px !important;
+}
+
+.panels_a4d4d9 div[class^="container"] div[class^="flex"] button[role="switch"] {
+    width: 0px;
+    overflow: hidden;
+    transition: all 0.3s;
+    left: 16px;
+}
+
+.panels_a4d4d9 div[class^="container"] div[class^="flex"]:hover button[role="switch"] {
+    width: 32px;
+    overflow: visible;
+    transition: all 0.3s;
+    left: 0px;
+}
+
+.panels_a4d4d9 div[class^="container"] div[class^="flex"]:not(:hover) button:not([role="switch"]) svg {
+    rotate: 360deg;
+    transition: rotate 0.3s;
+    background-color: var(--background-secondary-alt);
+    /* might look off with some themes */
+}
+
+.panels_a4d4d9 div[class^="container"] div[class^="flex"]:hover button:not([role="switch"]) svg {
+    rotate: 0deg;
+    transition: rotate 0.3s;
+}
+
+
+/*hover anims*/
+
+/* spin hover animations */
+button.button_f67531
+
+/* make user panel buttons round */
+    {
+    border-radius: 50%;
+}
+
+.button_f67531:last-child .contents_dd4f85
+/* settings button */
+,
+.attachButton_f298d4 .attachButtonInner_f298d4
+/* upload button */
+,
+.emojiButton_d0696b .contents_dd4f85
+/* emoji button */
+,
+.closeButton_df5532
+/* settings exit button */
+,
+.contents_dd4f85>.closeIcon_f9a4c9
+
+/* modal close */
+    {
+    transition: transform var(--icon-spin-transition);
+}
+
+.button_f67531:last-child:hover .contents_dd4f85,
+.attachButton_f298d4:hover .attachButtonInner_f298d4,
+.emojiButton_d0696b:hover .contents_dd4f85,
+.closeButton_df5532:hover,
+.contents_dd4f85:hover>.closeIcon_f9a4c9 {
+    transform: rotate(360deg);
+}
+
+/* fix laggy guild scroller on linux*/
+
+.scroller_fea3ef {
+    contain: unset;
+}
+
+
+/*Add missing Favourite/Unfavourite Emote context menu icon*/
+
+:is(#message-favorite, #message-unfavorite) [class|=label]::after {
+    display: inline-block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: var(--interactive-normal);
+    -webkit-mask: url(/assets/141d49436743034a59dec6bd5618675d.svg);
+    mask: url(/assets/141d49436743034a59dec6bd5618675d.svg);
+    position: absolute;
+    right: 8px;
+}
+
+/*the above but for Remove All Reactions*/
+
+#message-remove-reactions [class|=label]::after {
+    display: inline-block;
+    content: "";
+    width: 18px;
+    height: 18px;
+    background-color: currentColor;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12ZM6.375 12.8713C7.41054 12.8713 8.25 12.0318 8.25 10.9963C8.25 9.96073 7.41053 9.12128 6.375 9.12128C5.33947 9.12128 4.5 9.96073 4.5 10.9963C4.5 12.0318 5.33946 12.8713 6.375 12.8713ZM19.5 10.9963C19.5 12.0318 18.6605 12.8713 17.625 12.8713C16.5895 12.8713 15.75 12.0318 15.75 10.9963C15.75 9.96073 16.5895 9.12128 17.625 9.12128C18.6605 9.12128 19.5 9.96073 19.5 10.9963ZM10.4867 14.825C10.3576 14.3236 9.8465 14.0217 9.34508 14.1508C8.84365 14.2798 8.54179 14.791 8.67085 15.2924C9.0524 16.7748 10.397 17.8712 12 17.8712C13.603 17.8712 14.9476 16.7748 15.3291 15.2924C15.4582 14.791 15.1563 14.2798 14.6549 14.1508C14.1535 14.0217 13.6424 14.3236 13.5133 14.825C13.3398 15.4991 12.7268 15.9962 12 15.9962C11.2732 15.9962 10.6602 15.4991 10.4867 14.825Z"></path></svg>');
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="black" fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.522 17.523 22 12 22C6.477 22 2 17.522 2 12ZM6.375 12.8713C7.41054 12.8713 8.25 12.0318 8.25 10.9963C8.25 9.96073 7.41053 9.12128 6.375 9.12128C5.33947 9.12128 4.5 9.96073 4.5 10.9963C4.5 12.0318 5.33946 12.8713 6.375 12.8713ZM19.5 10.9963C19.5 12.0318 18.6605 12.8713 17.625 12.8713C16.5895 12.8713 15.75 12.0318 15.75 10.9963C15.75 9.96073 16.5895 9.12128 17.625 9.12128C18.6605 9.12128 19.5 9.96073 19.5 10.9963ZM10.4867 14.825C10.3576 14.3236 9.8465 14.0217 9.34508 14.1508C8.84365 14.2798 8.54179 14.791 8.67085 15.2924C9.0524 16.7748 10.397 17.8712 12 17.8712C13.603 17.8712 14.9476 16.7748 15.3291 15.2924C15.4582 14.791 15.1563 14.2798 14.6549 14.1508C14.1535 14.0217 13.6424 14.3236 13.5133 14.825C13.3398 15.4991 12.7268 15.9962 12 15.9962C11.2732 15.9962 10.6602 15.4991 10.4867 14.825Z"></path></svg>');
+    position: absolute;
+    right: 8px;
+}
+
+
+/*make markdown headers and bold text pop more by giving them color*/
+
+[class*=messageContent] :is(h1, h2, h3) {
+    color: salmon;
+}
+
+[class*=messageContent] strong {
+    color: lightsalmon;
+}
+
+
+/*make the member count smaller like it should be*/
+
+#vc-membercount {
+    margin-top: 0.5em !important;
+    margin-bottom: -1em !important;
+}
+
+
+
+/* Prettier Search bar */
+
+.search_a46bef:not(.open_a46bef)>.searchBar_a46bef {
+    width: 22px;
+    background: transparent;
+}
+
+.searchBarComponent_f0963d {
+    background: transparent;
+}
+
+.search_a46bef:not(.open_a46bef) .iconLayout_effbe2 {
+    cursor: pointer;
+}
+
+.search_a46bef:not(.open_a46bef) .iconContainer_effbe2 {
+    transform: scale(1.4);
+}
+
+.search_a46bef:not(.open_a46bef) .icon_effbe2 {
+    color: var(--interactive-normal);
+}
+
+.search_a46bef:not(.open_a46bef):hover .icon_effbe2 {
+    color: var(--interactive-active);
+}
+
+/* add "search" tooltip to above*/
+.search_a46bef:hover::before {
+    position: absolute;
+    border-radius: 16px;
+    /* 16 custom radius for roundeddiscord theme roundededness, 5 for normal*/
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    z-index: 1002;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-normal);
+    padding: 8px 12px;
+    background-color: var(--background-floating);
+    content: 'Search';
+    box-shadow: var(--elevation-high);
+}
+
+.search_a46bef:hover::after {
+    width: 0;
+    height: 0;
+    border: 0 solid transparent;
+    border-width: 5px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+    top: calc(100% - 2px);
+    content: '';
+    border-top-color: var(--background-floating);
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-top-width: 5px;
+    transform: rotate(180deg);
+}
+
+
+/*Connection Issue in floating in corner instead of covering whole screen*/
+
+
+/*.container_e40c16 {
+    background: transparent;
+    pointer-events: none;
+}
+.container_e40c16 .anchor-1MIwyf { pointer-events: auto; }
+.container_e40c16 .content_e40c16 .text_e40c16 {
+    display:none;
+}
+.container_e40c16 .ready_e40c16 {
+    position: absolute;
+    bottom: 70px;
+    right: 244px;
+    z-index: 1;
+}
+
+.container_e40c16 img, .container_e40c16 video {
+    width: 32px;
+    height: 32px;
+}
+.container_e40c16 .problems_e40c16 {
+    padding: 8px 16px;
+    bottom: 70px;
+    left: unset;
+    right: 18px;
+    width:fit-content;
+    height:fit-content;
+    background-color: var(--background-floating);
+    border-radius: 8px;
+    -webkit-box-shadow: var(--elevation-stroke), var(--elevation-medium);
+    box-shadow: var(--elevation-stroke), var(--elevation-medium);
+}
+*/
+
+
+/* Floating Folder */
+
+/*
+.wrapper_bc7085:active {
+    -webkit-transform: unset;
+    transform: none;
+}
+
+[id^="folder-items-"] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    overflow-y: auto;
+    max-height: calc(100vh - 72px);
+    margin: auto auto auto calc(72px + 8px);
+    padding-top: 8px;
+    border-radius: 8px;
+    background: var(--background-floating);
+    -webkit-box-shadow: var(--elevation-high);
+    box-shadow: var(--elevation-high);
+}
+
+[id^="folder-items-"]::-webkit-scrollbar {
+    display: none;
+}
+
+.folderIconWrapper_bc7085 {
+    transform: rotate(-90deg);
+}
+
+.closedFolderIconWrapper_bc7085 .icon_f11207,
+.expandedFolderIconWrapper_bc7085 svg {
+    transform: rotate(90deg);
+}
+*/
+
+/* Removes Chatbox from channel that don't allow you to communicate */
+
+.channelTextAreaDisabled_d0696b,
+.channelTextAreaDisabled_d0696b>.scrollableContainer_d0696b {
+    animation: nochat .000001ms forwards;
+}
+
+@keyframes nochat {
+    to {
+        height: 0
+    }
+}
+
+/*Hide the cursor when the video controls are hidden*/
+
+.wrapperControlsHidden-35Gtol {
+    cursor: none;
+}
+
+
+/* Unread pill in DMs list */
+
+
+/*
+ [class*="privateChannels"] li:has([class*="highlighted"])::before {
+     width: 8px;
+     height: 8px;
+     border-radius: 4px;
+     content: "";
+     float: left;
+     background-color: var(--interactive-active);
+     position: absolute;
+     top: calc(50% - 4px);
+     left: -4px;
+     transition: all .2s ease;
+}
+Optional: Animate on hover (similar to server list)
+[class*="privateChannels"] li:has([class*="highlighted"]):hover::before {
+     height: 16px !important;
+     top: calc(50% - 8px) !important;
+}
+*/
+
+
+
+
+/*nicer folders*/
+
+path[d="M20 7H12L10.553 5.106C10.214 4.428 9.521 4 8.764 4H3C2.447 4 2 4.447 2 5V19C2 20.104 2.895 21 4 21H20C21.104 21 22 20.104 22 19V9C22 7.896 21.104 7 20 7Z"] {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    d: path("m6 14 1.45-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.55 6a2 2 0 0 1-1.94 1.5H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h3.93a2 2 0 0 1 1.66.9l.82 1.2a2 2 0 0 0 1.66.9H18a2 2 0 0 1 2 2v2");
+}
+
+/* Floating Folder */
+/*
+.wrapper_bc7085:active {
+    -webkit-transform: unset;
+    transform: none;
+}
+
+[id^="folder-items-"] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 99;
+    overflow-y: auto;
+    max-height: calc(100vh - 73vh);
+    margin: 22px auto auto 72px;
+    border-bottom-right-radius: 0.75em;
+    background: var(--background-tertiary);
+    box-shadow: var(--elevation-high);
+}
+
+[id^="folder-items-"]::-webkit-scrollbar, .item_fd07a3 {
+    display: none;
+}
+*/
+
+
+/* resizable gif picker */
+:root {
+    /* Change me! */
+    --expression-picker-aspect-ratio: 1.125 / 1;
+}
+
+[class*="expressionPickerPositionLayer_"] [class*="positionContainer_"] {
+    height: calc(100vh - 128px);
+}
+
+[class*="expressionPickerPositionLayer_"] [class*="drawerSizingWrapper_"] {
+    max-height: 100%;
+    bottom: 0px;
+    height: auto;
+    aspect-ratio: var(--expression-picker-aspect-ratio);
+}
+
+/* Fixes soundmoji picker which has a hardcoded height */
+[class*="expressionPickerPositionLayer_"] [class*="soundboardContainer_"] [class*="picker_"] {
+    height: 100%;
+}
+
+/* edited time*/
+/*.timestamp_ec86aa:not(.timestampInline_ec86aa, .timestampVisibleOnHover_ec86aa) time::after {
+        content: " (" attr(aria-label) ")";
+        color: var(--text-muted);
+        font-size: 0.625rem;
+        font-weight: 400;
+        line-height: 1;
+        text-transform: lowercase;
+
+.edited_ec86aa:not(.message-translate-indicator) {
+    display: none;
+}
+*/
+
+/*css to fix the awful activities list on the member list*/
+.container_c64476 {
+    height: 42px;
+}
+
+.contentImage_a3b998[style="width: 48px; height: 48px;"] {
+    width: 34px !important;
+    height: 34px !important;
+}
+
+.userName_c64476 {
+    display: none;
+    position: absolute;
+}
+
+.badgeContainer__5607c {
+    display: none;
+    position: absolute;
+}
+
+.userSection_c64476 {
+    position: absolute;
+    font-size: 0;
+}
+
+.contentDescription_c64476 {
+    padding-left: 20px;
+}
+
+/*improved unread and ping pill*/
+/*     Blue Pill      */
+[class^="iconVisibility_"]:has([style="color: var(--text-brand);"])>[class^="unread_"] {
+    background-color: var(--text-brand);
+}
+
+/*     Red Pill      */
+[class^="iconVisibility_"]:has([class^="mentionsBadge_"])>[class^="unread_"] {
+    background-color: var(--status-danger);
+}
+
+
+/* Blurple Mention Highlight */
+.theme-dark,
+.theme-light {
+    --background-mentioned: var(--background-message-highlight) !important;
+    --background-mentioned-hover: var(--brand-experiment-10a) !important;
+}
+
+[class*="replying"]:before,
+[class*="mentioned"]:before {
+    background-color: var(--brand-500);
+}
+
+/* Replaces the color of the reply and thread lines */
+[class*="replying"] [class*="repliedMessage"]:before,
+[class*="mentioned"] [class*="repliedMessage"]:before,
+[class*="replying"][class*="hasThread"]:after,
+[class*="mentioned"][class*="hasThread"]:after {
+    border-color: var(--brand-500);
+}
+
+/* Replaces the color of the timestamps */
+[class*="replying"] [class*="timestamp"]:has(time),
+[class*="mentioned"] [class*="timestamp"]:has(time),
+    {
+    color: var(--text-brand) !important;
+}
+
+/*temporary fix for discord using default chrome scrollbars on latest chrome / vesktop until they fix their css*/
+
+* {
+    scrollbar-width: unset !important;
+    scrollbar-color: unset !important;
+}
+
+/*"Anti-aliased" poll checked icon*/
+[class^="answerSelectionIcon"]>circle:not([class^="radioForeground"]) {
+    r: 9;
+}
+
+
+/*discord blurred splash screen*/
+/*.container_e40c16.fixClipping_c7e9c6,{
+    background: 0 0;
+    backdrop-filter: blur(5px);
+}*/
+
+/*discord blurred settings screen*/
+
+
+/*test for above*/
+/*#app-mount [class*=baseLayer_] 
+ { opacity: 1 !important; 
+   transform: unset; }
+*/
+
+
+/*Compress bot messages*/
+
+/*[class^="grid_"]:has(> :last-child:nth-child(2)) {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.1rem 1rem 0.6rem 0.75rem;
+}
+[class^="grid_"]:has(> :last-child:nth-child(2)) [class^="embedTitle_"],
+[class^="grid_"]:has(> :last-child:nth-child(2)) [class^="embedDescription_"] {
+  padding-left: 12px;
+}
+*/
+
+
+/* 
+revert discord's dumb new change with bot tags and stuff (made by <@343383572805058560>)
+ */
+.botText_a02df3 {
+  font-size: 10px !important;
+  top: 0px;
+}
+
+/* 
+Makes the Summaries dropdown a lot bigger
+ */
+div[class^=topicsScroller_] {
+    max-height: calc(100vh - 2.5in);
+}
+:has(> div[class^=topicsScroller_]) {
+    width: calc(40% - 8q);
+}
+
+/* Match Send Friend Request Button color with the Profile Color */
+.custom-profile-theme [aria-label="Send Friend Request"] button {
+ background-color: var(--profile-gradient-button-color);
+ transition: opacity .2s ease-in-out;
+}
+.custom-profile-theme [aria-label="Send Friend Request"] button:hover {
+ background-color: var(--profile-gradient-button-color);
+ opacity: 0.8;
+}
+
+
+/* Slightly grays out the emojis in muted channel titles, to better match the text*/
+[class*="modeMuted_"]:has([class^="icon_"]) [class^="name_"] {
+    color: var(--channel-icon);
+    opacity: 40%;
+}
+
+
+
+/* message header timestamps */
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+  /* header-less multi-line hover timestamps */
+span[class*="timestampVisibleOnHover_"] time::before {
+  content: attr(aria-label);
+  position: absolute;
+  font-size: 0.6rem;
+  line-height: 0.85rem;
+  width: 65px;
+  left: -1px;
+  top: -2px;
+}
+
+  /* hide the old timestamps */
+span[class*="timestampInline_"], span[class*="timestampVisibleOnHover_"] {
+  font-size: 0rem !important;
+}
+
+/*     Modernized audio attachments      */
+[class^="mosaicItem"] > [class^="wrapperAudio"] > [class^="audioMetadata"] {
+  margin-bottom: 24px;
+}
+[class^="mosaicItem"] > [class^="wrapperAudio"] > [class^="audioControls"] {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+/* ShowMeYourName but @ instead of parentheses */
+.vc-smyn-suffix:before {
+    content: "@" !important;
+}
+.vc-smyn-suffix:after {
+    content: "" !important;
+}
+
+
+
+ 
+ /* gradient on selected channel */
+
+/*:root{
+    --highlight-select: linear-gradient(-45deg, #9366e23d 60%, #deaecf3d);
+    --highlight-icon: #deaecf;
+}*/
+/* channel outlines and highlighted icons */
+/*#app-mount .containerDefault_f6f816.selected_f6f816 .wrapper_d8bfb3 .link_d8bfb3 {
+    background: var(--highlight-select);
+    border-radius: 12px;
+    margin-left: 0px;
+}
+
+.icon_d8bfb3 {
+    width: 18px;
+    height: 18px;
+}
+
+[aria-label="Channels"] [class^="content"],
+[class^="popout-"] [class^="row-"] {
+    border-style: solid;
+    border-width: 0px;
+    border-color: transparent;
+    background-color: transparent;
+}
+
+[aria-label="Channels"] [class^="content"]:hover,
+[class^="popout-"] [class^="row-"]:hover {
+    border-color: var(--highlight-icon) !important;
+}
+
+.modeUnreadImportant_d8bfb3 .icon_d8bfb3,
+#app-mount .containerDefault_f6f816.selected_f6f816 .wrapper_d8bfb3 .icon_d8bfb3,
+#app-mount .containerDefault_f6f816:hover .wrapper_d8bfb3 .icon_d8bfb3 {
+    color: var(--highlight-icon) !important;
+}*/
+
+
+
