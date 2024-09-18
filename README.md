@@ -1,4 +1,4 @@
-# config-files-
+# config-files
 
 configs for my "rice"
 
