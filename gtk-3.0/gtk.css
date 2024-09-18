@@ -1,0 +1,42 @@
+/**********************
+ * focused window border color *
+ **********************/
+
+decoration {
+    /* this is your active window*/
+    border: 3px solid #f38ba8;
+}  
+
+decoration:backdrop {
+    border: 3px solid #89b4fa;
+}
+
+/* remove gnome-terminal titlebar */
+
+terminal-window headerbar *,
+
+terminal-window .titlebar
+
+{
+
+background-image:none;
+background-color:transparent;
+margin-top:-100px;
+
+}
+
+/* slightly rounded corners */
+
+terminal-window decoration {
+
+border-radius: 3px 3px 3px 3px
+
+} 
+
+
+/* add padding */
+ VteTerminal,
+TerminalScreen,
+ vte-terminal {
+     padding: 15px 15px 15px 15px;
+ }
